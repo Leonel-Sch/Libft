@@ -6,7 +6,7 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:19:39 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/22 20:48:10 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/23 17:44:36 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	s11 = (const unsigned char *)s1;
 	s22 = (const unsigned char *)s2;
-	while ((s11[i] == s22[i]) && (i <= n))
+	if (n == 0)
+		return (0);
+	while ((s11[i] == s22[i]) && (i < n - 1))
 		i++;
 	return (s11[i] - s22[i]);
 }

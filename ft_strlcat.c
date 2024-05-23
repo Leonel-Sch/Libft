@@ -6,7 +6,7 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:48 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/22 20:47:59 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:53:59 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include <bsd/string.h>
-
-size_t	ft_strlen(const char *str);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t siz)
 {
@@ -26,19 +24,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t siz)
 	lendst = ft_strlen(dst);
 	if (lendst >= siz)
 	{
-		return (strlen(src) + siz);
+		return (ft_strlen(src) + siz);
 	}
-	while ((lendst + i + 1 < siz) && src[i])
+	while ((lendst + i < siz) && src[i])
 	{
-		dst[lendst + i + 1] = src[i];
+		dst[lendst + i] = src[i];
 		i++;
 	}
-	while (lendst + i + 1 <= siz)
+	while (lendst + i <= siz)
 	{
-		dst[lendst + i + 1] = '\0';
+		dst[lendst + i] = '\0';
 		i++;
 	}
-	return (strlen(src) + lendst);
+	dst[siz - 1] = '\0';
+	return (ft_strlen(src) + lendst);
 }
 
 //int main (void)

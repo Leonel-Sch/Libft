@@ -6,14 +6,14 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:58:02 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/22 20:48:28 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/23 08:14:55 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <unistd.h>
 
 static int	ft_size(long nb)
 {

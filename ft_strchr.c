@@ -6,7 +6,7 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:55:05 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/22 18:26:15 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:10:25 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i])
 		i++;
 	if (s[i] == c)
 		return ((char *)&s[i]);
-	if (s[i + 1] == c)
-		return ((char *)&s[i + 1]);
 	return (NULL);
 }
 

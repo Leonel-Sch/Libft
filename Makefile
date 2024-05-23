@@ -22,12 +22,17 @@ CFLAGS += -Wextra
 CFLAGS += -Wall
 #Rules######################################
 
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+
 $(OBJ): $(SOURCES)
 	$(CC) $(CFLAGS) -c $(SOURCES) -I $(INCLUDES)
 
-all: $(OBJ)
-	ar rcs $(NAME) $(OBJ)
 
+	
 clean:
 	rm -rf *.o
 

@@ -6,13 +6,13 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:50:07 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/22 17:53:36 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/23 08:18:54 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 97 && c <= 122)
 		c = c - 32;
