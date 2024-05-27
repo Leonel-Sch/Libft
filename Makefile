@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 
 
 $(OBJ): $(SOURCES)
-	$(CC) $(CFLAGS) -c $(SOURCES) -I $(INCLUDES)
+	$(CC) $(CFLAGS) -c $(SOURCES)
 
 
 	

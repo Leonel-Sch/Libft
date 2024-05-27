@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leonel <leonel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:32:41 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/23 19:07:03 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:32:40 by leonel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	i = 0;
 	if (dest == NULL || src == NULL)
-		return(dest); 
+		return (dest);
 	while (i < n)
 	{
 		((char *)dest)[i] = ((char *)src)[i];

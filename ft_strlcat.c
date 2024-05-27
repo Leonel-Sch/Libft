@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leonel <leonel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:48 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/23 11:53:59 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:37:59 by leonel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t siz)
 {
-	size_t i;
-	size_t lendst;
+	size_t	i;
+	size_t	lendst;
 
 	i = 0;
 	lendst = ft_strlen(dst);

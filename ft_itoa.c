@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leonel <leonel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:58:02 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/23 08:14:55 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:51:06 by leonel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 
 static int	ft_size(long nb)
 {
-	int	i;
 	int	size;
 
 	size = 1;
-	i = 0;
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -34,6 +32,7 @@ static int	ft_size(long nb)
 	}
 	return (size);
 }
+
 static int	ft_logic(char *str, long nb)
 {
 	int	i;
@@ -60,6 +59,7 @@ static int	ft_logic(char *str, long nb)
 	}
 	return (0);
 }
+
 char	*ft_itoa(int n)
 {
 	long	nb;
