@@ -6,7 +6,7 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:23:45 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/23 17:30:37 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:31:42 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 
 static char	**ft_xav(char **tab, int i)
 {
-	while (i >= 0)
+	int	j;
+
+	j = 0;
+	i = 2;
+	while (tab[j] != NULL)
 	{
-		free(tab[i]);
-		i--;
+		free(tab[j]);
+		tab[j] = NULL;
+		j++;
 	}
 	free(tab);
-	return (tab);
+	return (NULL);
 }
 
 static int	ft_count_words(const char *s, char c)
@@ -36,7 +41,7 @@ static int	ft_count_words(const char *s, char c)
 		if (s[i] != c)
 		{
 			count++;
-			while (s[i] != c)
+			while (s[i] != c || s[i] == '\0')
 			{
 				if (s[i] == '\0')
 					return (count);
@@ -48,7 +53,7 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-void	ft_dependance(char **tab, const char *s, char c, int i)
+static char	**ft_dependancy(char **tab, const char *s, char c, int i)
 {
 	int	k;
 	int	j;
@@ -61,20 +66,20 @@ void	ft_dependance(char **tab, const char *s, char c, int i)
 		k = 0;
 		while (s[j] == c)
 			j++;
-		while (s[j] != c)
+		while ((s[j] != c) && (s[j]))
 		{
 			j++;
 			sizewords++;
 		}
-		tab[i] = (char *)malloc(sizeof(char) * sizewords + 2);
+		tab[i] = (char *)malloc(sizeof(char) * sizewords + 1);
 		if (!tab[i])
-			ft_xav(tab, i);
+			return (ft_xav(tab, i));
 		while (0 < sizewords)
 			tab[i][k++] = s[j - sizewords--];
 		tab[i++][k] = '\0';
 	}
-	tab[ft_count_words(s, c)] = (char *)malloc(10);
-	tab[ft_count_words(s, c)] = NULL;
+	tab[i] = NULL;
+	return (tab);
 }
 
 char	**ft_split(char const *s, char c)
@@ -86,21 +91,21 @@ char	**ft_split(char const *s, char c)
 	tab = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!tab)
 		return (NULL);
-	ft_dependance(tab, s, c, i);
-	return (tab);
+	return (ft_dependancy(tab, s, c, i));
 }
 
-int	main(void)
-{
-	int		i;
-	char	**tab;
+// int	main(void)
+//{
+//	int		i;
+//	char	**tab;
 
-	i = 0;
-	tab = ft_split(" la vie est   belle", ' ');
-	while (i <= 4)
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-	return (0);
-}
+//	i = 0;
+//	tab = ft_split("hello!", 32);
+//	while (i <= 1)
+//	{
+//		printf("%s\n", tab[i]);
+//		i++;
+//	}
+//	//printf("%d", ft_count_words("Tripouille", ' '));
+//	return (0);
+//}

@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2024/05/21 16:50:30 by lscheupl          #+#    #+#             */
 /*   Updated: 2024/05/21 16:50:30 by lscheupl         ###   ########.fr       */
 /*                                                                            */
@@ -15,8 +18,29 @@
 
 # include <stdlib.h>
 # include <string.h>
-# include <unistd.h> 
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdio.h>
 
+# define UL unsigned long long
+# define HEXAL "0123456789abcdef"
+# define HEXAU "0123456789ABCDEF"
+# define B10 "0123456789"
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+void	ft_putchar_nb(char c, int *count);
+void	ft_putstr_f(char *s, int *count);
+void	ft_putnbr_base_f(long long nb, char *base, int *count);
+void	ft_putnbr_base_fd(long long nb, char *base, int fd);
+int		ft_printf(const char *format, ...);
+int		ft_dependance(const char *format, va_list ap, int *count, int i);
+void	ft_pointer(unsigned long long nb, int *count);
+void	ft_putnbr_base_ul(unsigned long long nb, char *base, int *count);
 size_t	ft_strlen(const char *str);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -46,7 +70,22 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_substr(char const *s, unsigned int start,
-			size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

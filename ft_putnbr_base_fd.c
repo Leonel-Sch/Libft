@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 17:55:05 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/05/28 17:46:20 by lscheupl         ###   ########.fr       */
+/*   Created: 2024/08/03 17:17:49 by lscheupl          #+#    #+#             */
+/*   Updated: 2024/08/03 18:01:01 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//#include <stdio.h>
-
-char	*ft_strchr(const char *s, int c)
+void	ft_putnbr_base_fd(long long nb, char *base, int fd)
 {
-	int				i;
-	unsigned char	cc;
+	int	len;
 
-	i = 0;
-	cc = (unsigned char)c;
-	while (s[i] != cc && s[i])
-		i++;
-	if (s[i] == cc)
-		return ((char *)&s[i]);
-	return (NULL);
+	len = ft_strlen(base);
+	if (nb < 0)
+	{
+		nb = -nb;
+		ft_putchar_fd('-', fd);
+	}
+	if (nb >= len)
+	{
+		ft_putnbr_base_fd(nb / ft_strlen(base), base, fd);
+		ft_putchar_fd(base[nb % ft_strlen(base)], fd);
+	}
+	if (nb < len)
+	{
+		ft_putchar_fd(base[nb], fd);
+	}
 }
 
-// int main (void)
+//int	main(int argc, char **argv)
 //{
-//	char s[] = "lalala";
-//	int c = 97;
-//	printf("%s", ft_strchr(s, c));
+//	if (argc > 3)
+//		return (0);
+//	ft_putnbr_base_fd(ft_atoi(argv[1]), argv[2], 1);
 //	return (0);
 //}
