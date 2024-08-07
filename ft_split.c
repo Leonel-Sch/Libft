@@ -6,52 +6,52 @@
 /*   By: lscheupl <lscheupl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:23:45 by lscheupl          #+#    #+#             */
-/*   Updated: 2024/08/03 17:31:42 by lscheupl         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:07:29 by lscheupl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	**ft_xav(char **tab, int i)
-{
-	int	j;
+//static char	**ft_xav(char **tab, int i)
+//{
+//	int	j;
 
-	j = 0;
-	i = 2;
-	while (tab[j] != NULL)
-	{
-		free(tab[j]);
-		tab[j] = NULL;
-		j++;
-	}
-	free(tab);
-	return (NULL);
-}
+//	j = 0;
+//	i = 2;
+//	while (tab[j] != NULL)
+//	{
+//		free(tab[j]);
+//		tab[j] = NULL;
+//		j++;
+//	}
+//	free(tab);
+//	return (NULL);
+//}
 
-static int	ft_count_words(const char *s, char c)
-{
-	int	count;
-	int	i;
+//static int	ft_count_words(const char *s, char c)
+//{
+//	int	count;
+//	int	i;
 
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			count++;
-			while (s[i] != c || s[i] == '\0')
-			{
-				if (s[i] == '\0')
-					return (count);
-				i++;
-			}
-		}
-		i++;
-	}
-	return (count);
-}
+//	i = 0;
+//	count = 0;
+//	while (s[i])
+//	{
+//		if (s[i] != c)
+//		{
+//			count++;
+//			while (s[i] != c || s[i] == '\0')
+//			{
+//				if (s[i] == '\0')
+//					return (count);
+//				i++;
+//			}
+//		}
+//		i++;
+//	}
+//	return (count);
+//}
 
 static char	**ft_dependancy(char **tab, const char *s, char c, int i)
 {
@@ -73,7 +73,7 @@ static char	**ft_dependancy(char **tab, const char *s, char c, int i)
 		}
 		tab[i] = (char *)malloc(sizeof(char) * sizewords + 1);
 		if (!tab[i])
-			return (ft_xav(tab, i));
+			return (ft_free_tab(tab, i));
 		while (0 < sizewords)
 			tab[i][k++] = s[j - sizewords--];
 		tab[i++][k] = '\0';

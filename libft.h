@@ -33,6 +33,16 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_pile
+{
+	int				content;
+	struct s_pile	*next;
+	struct s_pile	*prev;
+}	t_pile;
+
+char	*ft_strcat(char *s1, char *s2);
+long long	ft_atoll(const char *nptr);
+int		ft_count_words(const char *s, char c);
 void	ft_putchar_nb(char c, int *count);
 void	ft_putstr_f(char *s, int *count);
 void	ft_putnbr_base_f(long long nb, char *base, int *count);
@@ -77,7 +87,7 @@ int		ft_isascii(int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
+char	*ft_strcpy(char const *src, char *dest);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -87,5 +97,15 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	**ft_free_tab(char **tab, int i);
+t_pile	*ft_pilenew(int content);
+void	ft_pileadd_front(t_pile **pile, t_pile *new);
+int		ft_pilesize(t_pile *pile);
+t_pile	*ft_pilelast(t_pile *pile);
+void	ft_pileadd_back(t_pile **pile, t_pile *new);
+void	ft_piledelone(t_pile *pile, void (*del)(int));
+void	ft_pileclear(t_pile **pile, void (*del)(int));
+void	ft_pileiter(t_pile *pile, void (*f)(int));
+t_pile	*ft_pilemap(t_pile *pile, int (*f)(int), void (*del)(int));
 
 #endif
